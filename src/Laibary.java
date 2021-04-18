@@ -30,7 +30,7 @@ public class Laibary {
 
             switch (choose) {
 
-                case 1: {
+                case 1: while (choose !=0){
                     System.out.println("what process you like do it? \n");
                     System.out.println("---------------------------------- \n");
                     System.out.println("\t\t\t1) BROWE BOOK  ");
