@@ -8,14 +8,14 @@ public class Manager {
 
     private CircQueueImp<Book> bookList;
     private CircQueueImp<Student> studentList;
-    private CircQueueImp<Borrow> borrowList;
-    private CircQueueImp<Student> the_borrowerList;
+    // soon  private CircQueueImp<Borrow> borrowList;// soon
+    // soon private CircQueueImp<Student> the_borrowerList;// soon
 
     public Manager() {
 
         bookList = new CircQueueImp<>();
         studentList = new CircQueueImp<>();
-        borrowList = new CircQueueImp<>();
+        // soon  borrowList = new CircQueueImp<>();
 
     }
 
@@ -74,12 +74,13 @@ public class Manager {
             newBook.setNo_cobys(copy);
 
             bookList.enqueue(newBook);
-            System.out.println("\t\t####### ADD SECSUFULL ########\n");
+            System.out.println("\t\t####### ADD SECSUFULL ########\n\n");
 
         } else System.out.println(" sorry Enter 1 or 2 ");
     }
 
     ////////////////////// Vew all Books ///////////////////////////////////////
+
     public void view_Books() {
         for (int i = 0; i < bookList.size(); i++) {
             System.out.println(bookList.first());
@@ -103,20 +104,38 @@ public class Manager {
         return false;
     }
 
+
     /////////////////////////////eidt_Book /////////////////////////////////
 
-    public boolean eidt_Book(int b_id, String book_Taittle) {
+    public boolean eidt_Book() {
         System.out.println("Enter Book ID And the nEw tittle ");
+        int id= enter.nextInt();
         for (int i = 0; i < bookList.size(); i++) {
-            if (bookList.first().getBookId() == b_id) {
+            if (bookList.first().getBookId() == id) {
+                System.out.println("Enter new book Taitlle");
+                String book_Taittle = enter.next();
                 bookList.first().setBookTaittle(book_Taittle);
                 return true;
             }
             bookList.rotate();
         }
-
+        System.out.println("not found");
         return false;
     }
 
+/////////////////////////////////////////////////
 
+    public boolean search_Book() {
+        System.out.println("Enter Book iD want to find it ");
+        int id= enter.nextInt();
+
+        for (int i = 0; i < bookList.size(); i++) {
+            if (bookList.first().getBookId() == id) {
+                System.out.println("Book ditalis is \n--------------------------------\n "+bookList.first().toString());
+                return true;
+            }
+            bookList.rotate();
+        }
+        return false;
+    }
 }
