@@ -21,6 +21,8 @@ public class Test {
             System.out.println("\t\t\t2) update a Book Taittle ");
             System.out.println("\t\t\t3) Vew all Books ");
             System.out.println("\t\t\t4) Delete a Book ");
+            System.out.println("\t\t\t5) looking for  Book ");
+
             System.out.println("\t\t\t0) Back to main list ");
 
             System.out.println("what process you like do it? \n");
@@ -46,9 +48,14 @@ public class Test {
                 case 4: {
 
                     int id = enter.nextInt();
-                    use.delet_Book();
+
                 }
                 break;
+                case 5: {
+
+                    use.search_Book();
+                }
+
                 case 0:
                     break;
 

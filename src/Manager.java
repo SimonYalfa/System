@@ -124,4 +124,18 @@ public class Manager {
     }
 
 /////////////////////////////////////////////////
+
+    public boolean search_Book() {
+        System.out.println("Enter Book iD want to find it ");
+        int id= enter.nextInt();
+
+        for (int i = 0; i < bookList.size(); i++) {
+            if (bookList.first().getBookId() == id) {
+                System.out.println("Book ditalis is \n--------------------------------\n "+bookList.first().toString());
+                return true;
+            }
+            bookList.rotate();
+        }
+        return false;
+    }
 }
